@@ -28,6 +28,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown("""
+    <style>
+    .block-container {
+        padding-top: 1rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 
 # --- Load Data ---
 df = pd.read_csv("fifa_players.csv")
