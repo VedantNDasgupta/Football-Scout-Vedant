@@ -153,9 +153,9 @@ with col1:
     st.markdown("---")  # Divider
 
     # Budget + Overall Rating
-st.subheader("💰 Budget Remaining")
-st.markdown(f"<h2 style='text-align: center; font-size: 25px; color: gold;'>€{st.session_state.budget:,}</h2>", unsafe_allow_html=True)
 
+st.subheader("💰 Budget Remaining")
+st.metric(label="", value=f"€{st.session_state.budget:,}")
 
     st.subheader("⭐ Squad Overall Rating")
     if st.session_state.team_overall:
