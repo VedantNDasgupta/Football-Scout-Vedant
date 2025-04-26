@@ -89,7 +89,7 @@ for group in ['Forward', 'Midfielder', 'Defender', 'Goalkeeper']:
 # --- Streamlit App ---
 
 # Centered Title
-st.markdown("<h1 style='text-align: center; color: gold;'>⚽ FIFA Scouting Dashboard ⚽</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: gold;'>⚽ FIFA Scouting Dashboard</h1>", unsafe_allow_html=True)
 
 # Session State Initialization
 if "budget" not in st.session_state:
