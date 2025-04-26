@@ -28,6 +28,18 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Custom CSS to reduce Budget Remaining font size
+st.markdown(
+    """
+    <style>
+        div[data-testid="metric-container"] > div > div > span {
+            font-size: 18px;  /* Change to whatever size you prefer */
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # --- Load Data ---
 df = pd.read_csv("fifa_players.csv")
