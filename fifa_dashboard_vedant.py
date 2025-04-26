@@ -13,6 +13,22 @@ from math import pi
 # --- Streamlit Page Setup ---
 st.set_page_config(page_title="⚽ FIFA Scouting Dashboard", layout="wide")
 
+# Custom CSS to shrink sidebar width
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebar"] {
+            width: 220px;
+        }
+        [data-testid="stSidebar"] > div:first-child {
+            width: 220px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 # --- Load Data ---
 df = pd.read_csv("fifa_players.csv")
 
@@ -140,15 +156,15 @@ with col1:
     with mcol1:
         st.metric(label="Overall", value=int(selected_player_row['overall_rating']))
     with mcol2:
-        st.metric(label="Potential", value=int(selected_player_row['potential']))
-    with mcol3:
         st.metric(label="Age", value=int(selected_player_row['age']))
+    with mcol3:
+        st.metric(label="Height (cm)", value=int(selected_player_row['height_cm']))
 
     mcol4, mcol5 = st.columns(2)
     with mcol4:
-        st.metric(label="Height (cm)", value=int(selected_player_row['height_cm']))
-    with mcol5:
         st.metric(label="Weight (kg)", value=int(selected_player_row['weight_kgs']))
+    with mcol5:
+        st.metric(label="Value (€)", value=f"€{int(selected_player_row['value_euro']):,}")
 
     st.markdown("---")  # Divider
 
