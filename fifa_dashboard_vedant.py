@@ -28,18 +28,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Custom CSS to reduce Budget Remaining font size
-st.markdown(
-    """
-    <style>
-        div[data-testid="metric-container"] > div > div > span {
-            font-size: 12px;  /* Change to whatever size you prefer */
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 
 # --- Load Data ---
 df = pd.read_csv("fifa_players.csv")
@@ -168,22 +156,26 @@ with col1:
     with mcol1:
         st.metric(label="Overall", value=int(selected_player_row['overall_rating']))
     with mcol2:
-        st.metric(label="Age", value=int(selected_player_row['age']))
+        value_million = selected_player_row['value_euro'] / 1_000_000
+        st.metric(label="Value (€)", value=f"{value_million:.0f}M")
     with mcol3:
-        st.metric(label="Height (cm)", value=int(selected_player_row['height_cm']))
-
+        st.metric(label="Age", value=int(selected_player_row['age']))
+    
     mcol4, mcol5 = st.columns(2)
     with mcol4:
-        st.metric(label="Weight (kg)", value=int(selected_player_row['weight_kgs']))
+        st.metric(label="Height (cm)", value=int(selected_player_row['height_cm']))
     with mcol5:
-        st.metric(label="Value (€)", value=f"€{int(selected_player_row['value_euro']):,}")
+        st.metric(label="Weight (kg)", value=int(selected_player_row['weight_kgs']))
+
 
     st.markdown("---")  # Divider
 
     # Budget + Overall Rating
 
     st.subheader("💰 Budget Remaining")
-    st.metric(label="", value=f"€{st.session_state.budget:,}")
+    budget_million = st.session_state.budget / 1_000_000
+    st.metric(label="", value=f"€{budget_million:.0f}M")
+
     
     st.subheader("⭐ Squad Overall Rating")
     if st.session_state.team_overall:
