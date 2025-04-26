@@ -158,11 +158,11 @@ st.subheader("💰 Budget Remaining")
 st.metric(label="", value=f"€{st.session_state.budget:,}")
 
 st.subheader("⭐ Squad Overall Rating")
-    if st.session_state.team_overall:
-        avg_overall = np.mean(st.session_state.team_overall)
-        st.metric(label="", value=f"{avg_overall:.1f}")
-    else:
-        st.metric(label="", value="N/A")
+if st.session_state.team_overall:
+    avg_overall = np.mean(st.session_state.team_overall)
+    st.metric(label="", value=f"{avg_overall:.1f}")
+else:
+    st.metric(label="", value="N/A")
 
 
 with col2:
