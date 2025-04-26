@@ -128,7 +128,7 @@ with st.sidebar:
 
 # --- Main Layout: Left = Budget + Overall Rating + Player Metrics | Right = Radar Chart ---
 
-col1, col2 = st.columns([3, 4])  # Left narrow, right wide
+col1, col2 = st.columns([2, 3])  # Left narrow, right wide
 
 # LEFT SIDE - col1
 with col1:
