@@ -33,7 +33,7 @@ st.markdown(
     """
     <style>
         div[data-testid="metric-container"] > div > div > span {
-            font-size: 18px;  /* Change to whatever size you prefer */
+            font-size: 12px;  /* Change to whatever size you prefer */
         }
     </style>
     """,
