@@ -4,3 +4,5 @@ scikit-learn
 seaborn
 matplotlib
 streamlit
+
+python==3.8
